@@ -1,0 +1,34 @@
+{
+  "name": "simplechat",
+  "version": "0.0.1",
+  "description": "Mobile web app without backend to represent a simple Chat/Profile using frontend tools",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yngrdyn/simpleChat.git"
+  },
+  "keywords": [
+    "Chat",
+    "FrontEnd",
+    "Profile"
+  ],
+  "author": "Yngrid Coello - @yngrdyn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yngrdyn/simpleChat/issues"
+  },
+  "homepage": "https://github.com/yngrdyn/simpleChat#readme",
+  "devDependencies": {
+    "autoprefixer": "^7.2.5",
+    "grunt": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-cssmin": "^2.2.1",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^3.3.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-express": "^1.4.1",
+    "grunt-postcss": "^0.9.0"
+  }
+}

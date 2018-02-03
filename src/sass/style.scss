@@ -1,0 +1,13 @@
+@import 'base';
+
+main {
+	max-width: $content-width;
+  	margin: 0 auto;
+	color: $font-color;
+  	display: flex;
+  	flex-direction: column;
+	h1 {
+		font-size: $header-size;
+		color: #f00;
+	}
+}
