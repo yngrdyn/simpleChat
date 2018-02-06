@@ -1,5 +1,4 @@
 window.onload = function() {
-    alert('Page loaded');
     var container = document.getElementById("js-container"),
 		addFriendButton = document.getElementById('js-addFriend'),
 		favoriteButton = document.getElementById('js-addFavorite'),
@@ -7,13 +6,18 @@ window.onload = function() {
 
 
 	addFriendButton.addEventListener("click", function(){
-		console.log(this);
-		addFriendButton.value= addFriend() ? "Remove Friend" : "Add Friend";
+		if(addedFriend()){
+			addFriendButton.value =  "Remove Friend";
+			container.classList.add("friends");
+		} else {
+			addFriendButton.value =  "Add as Friend";
+			container.classList.remove("friends");
+		}
 	});
 
 };
 
-function addFriend() {
+function addedFriend() {
 	setStorageElement("friend", true);
 	if(getStorageElement("friend")){
 		return true;
@@ -32,7 +36,6 @@ function getStorageElement(elementKey){
 
 function setStorageElement(elementKey, value){
 	if(localStorage){
-	    // Store data
 	    if(localStorage.getItem(elementKey)){
 	    	localStorage.removeItem(elementKey);
 	    	return false;
