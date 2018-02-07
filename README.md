@@ -25,6 +25,6 @@ Pure Javascript.
 
 ## Screens
 - Profile Page
-[!Profile Page](https://raw.githubusercontent.com/yngrdyn/simpleChat/master/img/Screenshot%20from%202018-02-07%2013-38-49.png)
+![Profile Page](https://raw.githubusercontent.com/yngrdyn/simpleChat/master/img/Screenshot%20from%202018-02-07%2013-38-49.png)
 - Chat Page
-[!Chat Page](https://raw.githubusercontent.com/yngrdyn/simpleChat/master/img/Screenshot%20from%202018-02-07%2013-39-31.png)
+![Chat Page](https://raw.githubusercontent.com/yngrdyn/simpleChat/master/img/Screenshot%20from%202018-02-07%2013-39-31.png)
