@@ -36,7 +36,7 @@ casper.test.begin('Testing Main', 8, function(test){
     });
 
     casper.wait(500, function(){
-        test.assertUrlMatch(this.getCurrentUrl(), 'User redirected to chat');
+        test.assertUrlMatch(this.getCurrentUrl(), 'http://localhost:8001/chat.html');
     });
 
     casper.then( function() {
