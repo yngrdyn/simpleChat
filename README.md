@@ -30,3 +30,6 @@ Pure Javascript.
 ## Chat Page
 
 ![Chat Page](https://raw.githubusercontent.com/yngrdyn/simpleChat/master/img/Screenshot%20from%202018-02-07%2013-39-31.png)
+
+## Live Demo
+[simpleChat](http://yngrdyn.getforge.io/index.html)
