@@ -1,0 +1,34 @@
+body{
+	@extend %centered;
+	@extend %flex-columns;
+	padding: 0;
+	height:100vh;
+	font-family: $font-family;
+  	align-items: stretch;
+  	color: $font-color;
+}	
+
+#header {
+	background: $header-color;
+	color: $font-header-color;
+	font-size: $header-font-size;
+	align-self: flex-start;
+	width:100%;
+	text-align: center;
+	line-height: $header-line-height;
+	.arrow {
+		position: absolute;
+		top: 6.5vw;
+		width: $header-arrow-size;
+		height: $header-arrow-size;
+		background: transparent;
+		border-top: $header-arrow-border solid $header-arrow-color;
+		border-right: $header-arrow-border solid $header-arrow-color;
+		@include box-shadow(0 0 0 $header-arrow-shadow);
+		transition: all 200ms ease;
+		&.left {
+			left: $header-arrow-left;
+			transform: translate3d(0,-50%,0) rotate(-135deg);
+		}
+	}
+ }

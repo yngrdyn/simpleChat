@@ -36,6 +36,10 @@ window.onload = function() {
 		}
 	});
 
+	chatButton.addEventListener("click", function(){
+		location.href = "/chat.html";
+	});
+
 	// End of Event handlers
 
 };

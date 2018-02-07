@@ -1,0 +1,90 @@
+@import 'base';
+@import 'header';
+
+main {
+	flex: 1;
+	padding:$main-padding;
+	color: $font-color;
+	background: $background-color;
+  	@extend %flex-columns;
+  	align-items: stretch;
+
+    .messages {
+    	max-width: $profile-maxwidth;
+    	@extend %flex-columns;
+    	overflow-y: auto;
+    	.message {
+    		@extend %flex-rows;
+    		.bubbletext-container {
+    			order: 2;
+				margin: 0 0px 15px 10px;
+				background-color: white;
+				width: calc(100% - 60px);
+				&.fromuser:after{
+					border-color: white transparent transparent transparent;
+				}
+			}
+			.userpicture {
+				background:#f00;
+				height:50px;
+				width:50px;
+				border-radius: 25px;
+				order: 1;
+			}
+    	}
+    	
+    }
+
+    
+
+	#footer {
+		align-self: flex-end;
+		width: 100%;
+		.bubbletext-container {
+			margin: 0 0 0 20px;
+			background-color: white;
+			width: calc(100% - 20px);
+			&.fromuser:after{
+				border-color: white transparent transparent transparent;
+			}
+			input {
+				color: #000;
+				width: 100%;
+				&:focus {
+			    	outline-style:none;
+					box-shadow:none;
+					border-color:transparent;
+			    }
+			}
+		}
+	}
+
+	.bubbletext-container {
+	  	display: inline-block;
+	  	position: relative;
+		height: auto;
+		border-radius: 5px;
+		&.fromuser:after{
+			content: ' ';
+			position: absolute;
+			width: 0;
+			height: 0;
+		  	left: -12px;
+			right: auto;
+		  	top: 0px;
+			bottom: auto;
+			border: 15px solid;
+		}
+		.bubbletext{
+			padding: 1em;
+		    text-align: left;
+		    line-height: 1.5em;
+		    p {
+		    	-webkit-margin-before: 0em;
+				-webkit-margin-after: 0em;
+		    }
+		}
+	}
+
+}
+

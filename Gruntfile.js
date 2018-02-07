@@ -44,8 +44,13 @@ module.exports = function(grunt) {
     },
     uglify: { // Begin JS Uglify Plugin
       build: {
-        src: ['src/js/*.js'],
-        dest: 'js/script.min.js'
+        files: [{
+              expand: true,
+              cwd: 'src/js/',
+              src: ['*.js', '!*.min.js'],
+              dest: 'js/',
+              ext: '.min.js'
+        }]
       }
     },
     connect : {

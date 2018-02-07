@@ -1,0 +1,128 @@
+body, main, main .messages {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column; }
+
+main .messages .message {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row; }
+
+body {
+  margin: 0 auto; }
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes fadingoutbutton {
+  from {
+    background-color: #3c3c3c; }
+  to {
+    background-color: transparent; } }
+/* Standard syntax */
+@keyframes fadingoutbutton {
+  from {
+    background-color: #3c3c3c; }
+  to {
+    background-color: transparent; } }
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes fadingoutbackground {
+  from {
+    background-color: #edebec; }
+  to {
+    background-color: #efeffb; } }
+/* Standard syntax */
+@keyframes fadingoutbackground {
+  from {
+    background-color: #edebec; }
+  to {
+    background-color: #efeffb; } }
+body {
+  padding: 0;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  align-items: stretch;
+  color: #615f60; }
+
+#header {
+  background: #3c3c3c;
+  color: #ffffff;
+  font-size: 6vw;
+  align-self: flex-start;
+  width: 100%;
+  text-align: center;
+  line-height: 13.5vw; }
+  #header .arrow {
+    position: absolute;
+    top: 6.5vw;
+    width: 3vw;
+    height: 3vw;
+    background: transparent;
+    border-top: 1.5vw solid #ffffff;
+    border-right: 1.5vw solid #ffffff;
+    -webkit-box-shadow: 0 0 0 lightgray;
+    -moz-box-shadow: 0 0 0 lightgray;
+    box-shadow: 0 0 0 lightgray;
+    transition: all 200ms ease; }
+    #header .arrow.left {
+      left: 4vw;
+      transform: translate3d(0, -50%, 0) rotate(-135deg); }
+
+main {
+  flex: 1;
+  padding: 4vw;
+  color: #615f60;
+  background: #edebec;
+  align-items: stretch; }
+  main .messages {
+    max-width: 1024px;
+    overflow-y: auto; }
+    main .messages .message .bubbletext-container {
+      order: 2;
+      margin: 0 0px 15px 10px;
+      background-color: white;
+      width: calc(100% - 60px); }
+      main .messages .message .bubbletext-container.fromuser:after {
+        border-color: white transparent transparent transparent; }
+    main .messages .message .userpicture {
+      background: #f00;
+      height: 50px;
+      width: 50px;
+      border-radius: 25px;
+      order: 1; }
+  main #footer {
+    align-self: flex-end;
+    width: 100%; }
+    main #footer .bubbletext-container {
+      margin: 0 0 0 20px;
+      background-color: white;
+      width: calc(100% - 20px); }
+      main #footer .bubbletext-container.fromuser:after {
+        border-color: white transparent transparent transparent; }
+      main #footer .bubbletext-container input {
+        color: #000;
+        width: 100%; }
+        main #footer .bubbletext-container input:focus {
+          outline-style: none;
+          box-shadow: none;
+          border-color: transparent; }
+  main .bubbletext-container {
+    display: inline-block;
+    position: relative;
+    height: auto;
+    border-radius: 5px; }
+    main .bubbletext-container.fromuser:after {
+      content: ' ';
+      position: absolute;
+      width: 0;
+      height: 0;
+      left: -12px;
+      right: auto;
+      top: 0px;
+      bottom: auto;
+      border: 15px solid; }
+    main .bubbletext-container .bubbletext {
+      padding: 1em;
+      text-align: left;
+      line-height: 1.5em; }
+      main .bubbletext-container .bubbletext p {
+        -webkit-margin-before: 0em;
+        -webkit-margin-after: 0em; }
