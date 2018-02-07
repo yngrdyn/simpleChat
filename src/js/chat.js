@@ -3,9 +3,6 @@
 var container = document.getElementById("js-container"),
 	inputMessage = document.getElementById('js-sendmessage');
 	messageContainer = document.getElementById('js-messages');
-	/*addFriendButton = document.getElementById('js-addFriend'),
-	favoriteButton = document.getElementById('js-addFavorite'),
-	chatButton = document.getElementById('js-chatButton');*/
 	backButton = document.getElementById('js-backbutton');
 
 	var HttpClient = function() {
@@ -29,9 +26,8 @@ window.onload = function() {
 	// Checking session data
 
 	if(!getStorageElement('messages')) {
-		setStorageElement('messages', []);
+		setStorageElement('messages', '');
 	} else {
-		console.log(getStorageElement('messages'));
 		var storedMessages = getStorageElement('messages');
 		if (storedMessages) {
 			storedMessages = JSON.parse(getStorageElement('messages'));
