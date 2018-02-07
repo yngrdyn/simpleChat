@@ -1,26 +1,145 @@
-// Variables
+// General
+$font-family: Arial, Helvetica, sans-serif;
+$font-color: #615f60;
+$background-color: #edebec;
+$background-color-friend: #efeffb;
 
-$header-size: 1.3em;
+// Header
+$header-font-size: 6vw;
+$font-header-color: #ffffff;
+$header-color: #3c3c3c;
+$header-line-height: 13.5vw;
+$header-arrow-color: #ffffff;
+$header-arrow-shadow: lightgray;
+$header-arrow-size: 3vw;
+$header-arrow-border: 1.5vw;
+$header-arrow-top: 6vw;
+$header-arrow-left: 4vw;
+
+// Main
+$main-padding: 4vw;
+
+// Button
+$font-button-size: 3.8vw;
+$font-friends-color: #3c3c3c;
+$font-nofriends-color: #ffffff;
+$background-friends: transparent;
+$background-nofriends: #3c3c3c;
+
+// Profile
+$profile-maxwidth: 1024px;
+$status-color: #5aec90;
+$font-status-color: #e6fded;
+$status-size: 18vw;
+$font-status-size: 3vw;
+$font-profilename-size: 5.6vw;
+$font-profilename-color: #464646;
+$star-size: 6.8vw;
+$star-color: #ffffff;
+$star-clicked-color: gold;
+$star-shadow-color: #d4d4d4;
+$font-profilelocation-color: #fb4f89;
+$font-profilelocation-size: 3.8vw;
+$font-description-size: 4vw;
+
+
 $subheader-size: 0.9rem;
 $text-size: 1rem;
 
 // Background
-$background-color: #edebec;
 
-// Fonts
-$font-color: #343434;
-$font-title-color: #464646;
+
+
 $font-button-color: #bcbcbc;
-$font-header-color: #ffffff;
+
 $font-subheader-color: #fb4f89;
-$font-status-color: #e6fded;
 
-// Header and footer
-$header-color: #3c3c3c;
+$font-shadow-color: #d4d4d4;
 
-// Buttons
-$friend-buttoncolor: #4CAF50;
-$friend-maincolor: #f0f;
 
 // Status
-$status-color: #5aec90;
+
+
+// Favorite
+$clicked-favorite: gold;
+
+
+// EXTENDS
+
+%flex-columns {
+  display: flex;
+  justify-content: space-between; 
+  flex-direction: column;
+}
+
+%flex-rows {
+  display: flex;
+  justify-content: space-between; 
+  flex-direction: row;
+}
+
+%centered {
+	margin: 0 auto;
+}
+
+
+
+
+// MIXINGS
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin box-shadow($args) {
+	-webkit-box-shadow: $args;
+	   -moz-box-shadow: $args;
+	        box-shadow: $args;
+
+}
+
+@mixin box-sizing($size) {
+	-webkit-box-sizing: $size;
+  	   -moz-box-sizing: $size;
+            box-sizing: $size;
+
+}
+
+@mixin background-clip($type) {
+	-webkit-background-clip: $type;
+	   -moz-background-clip: $type;
+	        background-clip: $type;
+}
+
+
+
+
+
+// ANIMATIONS
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes fadingoutbutton {
+    from {background-color: $header-color;}
+    to {background-color: transparent; }
+}
+
+/* Standard syntax */
+@keyframes fadingoutbutton {
+    from {background-color: $header-color;}
+    to {background-color: transparent;}
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes fadingoutbackground {
+    from {background-color: $background-color;}
+    to {background-color: $background-color-friend; }
+}
+
+/* Standard syntax */
+@keyframes fadingoutbackground {
+    from {background-color: $background-color;}
+    to {background-color: $background-color-friend; }
+}

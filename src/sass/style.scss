@@ -1,117 +1,163 @@
 @import 'base';
 
 body{
-	margin: 0;
+	@extend %centered;
+	@extend %flex-columns;
 	padding: 0;
 	height:100vh;
-	font-family: Arial, Helvetica, sans-serif;
-	display: flex;
-	justify-content: space-between; 
-  	flex-direction: column;
+	font-family: $font-family;
   	align-items: stretch;
-}
+  	color: $font-color;
+}	
 
 #header {
 	background: $header-color;
-	padding: 1rem;
 	color: $font-header-color;
-	font-size: 1.3rem;
+	font-size: $header-font-size;
 	align-self: flex-start;
 	width:100%;
-}
+	text-align: center;
+	line-height: $header-line-height;
+	.arrow {
+		position: absolute;
+		top: 6.5vw;
+		width: $header-arrow-size;
+		height: $header-arrow-size;
+		background: transparent;
+		border-top: $header-arrow-border solid $header-arrow-color;
+		border-right: $header-arrow-border solid $header-arrow-color;
+		@include box-shadow(0 0 0 $header-arrow-shadow);
+		transition: all 200ms ease;
+		&.left {
+			left: $header-arrow-left;
+			transform: translate3d(0,-50%,0) rotate(-135deg);
+		}
+	}
+ }
 
 main {
 	flex: 1;
-	padding:1rem;
+	padding:$main-padding;
 	color: $font-color;
 	background: $background-color;
-  	display: flex;
-  	justify-content: space-between; 
-  	flex-direction: column;
+  	@extend %flex-columns;
   	align-items: stretch;
+  	overflow-y: auto;
   	&.friends {
-    	background: $friend-maincolor;
+  		animation: fadingoutbackground 0.3s;
+    	background: $background-color-friend;
     	#footer
     	{
 	    	.button {
-			    background: $friend-buttoncolor;
+	    		animation: fadingoutbutton 0.3s;
+			    background: $background-friends;
+			    color: $font-friends-color;
+			    @include box-shadow(0 0 0 2px $background-nofriends inset);
+			    @include box-sizing(border-box);
 			} 
 		}
     }
 
-    .profile-picture {
-    	align-self: stretch;
-    	align-items: center;
-    	padding: 3rem 1.5rem 1.5rem;
-    	img {
-    		width:100%;
-    		height: 100%;
-    		margin: -90px auto 0;
-    		border-radius: 50%;
-    		background-position: center center;
-  			background-size: cover;
-    	}
-    	.profile-status {
-    		width: 70px;
-    		height: 70px;
-    		background: $status-color;
-    		color: $font-status-color;
-    		line-height: 70px;
-    		text-align: center;
-    		text-transform: uppercase;
-    		font-size: 0.75rem;
-    		border-radius: 35px;
-    		-webkit-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.15);
-			-moz-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.15);
-			box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.15);
-			position: relative;
-            top: 0px;
-            left: calc(100% - 55px);
-    	}	
+    .profile {
+    	@extend %centered;
+    	max-width: $profile-maxwidth;
+    	.profile-picture {
+	    	align-self: stretch;
+	    	align-items: center;
+	    	padding: 3rem 1.5rem 1.5rem;
+	    	img {
+	    		width:100%;
+	    		height: 100%;
+	    		margin: -24vw auto 0;
+	    		@include border-radius(50%);
+	    		background-position: center center;
+	  			background-size: cover;
+	    	}
+
+	    	.profile-status {
+	    		width: $status-size;
+	    		height: $status-size;
+	    		background: $status-color;
+	    		color: $font-status-color;
+	    		line-height: $status-size;
+	    		text-align: center;
+	    		text-transform: uppercase;
+	    		font-size: $font-status-size;
+	    		@include border-radius($status-size/2);
+	    		@include box-shadow(0px 1px 1px 1px rgba(0,0,0,0.15));
+				position: relative;
+	            top: 0px;
+	            left: calc(100% - 13vw);
+	    	}	
+	    }
+
+	    .profile-info {
+	    	align-self: stretch;
+	    	.top {
+	    		@extend %flex-rows; 
+	    		h1 {
+					font-size: $font-profilename-size;
+					color: $font-profilename-color;
+					font-weight: normal;
+					margin: 0px;
+				}
+	    		span {
+	    			align-self: flex-end;
+	    			position: relative;
+		  		    font-size: $star-size;
+				    margin-top: -3vw;
+				    margin-right: 0.2rem;
+				    text-shadow: 1px 1px 3px $star-shadow-color;
+				    &:before {
+	    				content: "\2605";
+	   					position: absolute;
+			   			color: $star-color;
+	    			}
+	    			&.clicked {
+	    				background-color: $star-clicked-color;
+					  	text-shadow: 1px 1px 1px $star-clicked-color;
+					  	@include background-clip(text);
+	    				&:before {
+				   			color: transparent;
+		    			}
+	    			}
+	    			
+	    		}
+	    	}
+	    	
+			h3 {
+				margin:0px;
+				color: $font-profilelocation-color;
+				font-size: $font-profilelocation-size;
+			}
+			p {
+				font-size: $font-description-size;
+			}
+	    }
+
     }
 
-    .profile-info {
-    	align-self: stretch;
-    	.top {
-    		display: flex;
-    		flex-direction: row;
-    		justify-content: space-between; 
-    		h1 {
-				font-size: $header-size;
-				color: $font-title-color;
-				font-weight: normal;
-				margin: 0px;
-			}
-    		span {
-    			align-self: flex-end;
-    		}
-    	}
-    	
-		h3 {
-			margin:0px;
-			color: $font-subheader-color;
-			font-size: $subheader-size;
-		}
-		p {
-			font-size: $text-size;
-		}
-    }
+    
 
 	#footer {
 		align-self: flex-end;
 		width: 100%;
 		.button {
-		    background-color: $header-color;
+		    background-color: $background-nofriends;
 		    border: none;
-		    color: $font-header-color;
-		    padding: 15px 0px;
+		    color: $font-nofriends-color;
+		    padding: 4.2vw 0px;
 		    text-align: center;
-		    font-size: 0.85rem;
+		    font-size: $font-button-size;
 		    font-weight:normal;
 		    cursor: pointer;
 		    width:100%;
 		    text-transform: uppercase;
+		    margin-bottom: 0.75rem;
+		    &:focus {
+		    	outline:0 !important;
+		    }
 		}
 	}
-	
 }
+

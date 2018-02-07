@@ -2,16 +2,28 @@ window.onload = function() {
     var container = document.getElementById("js-container"),
 		addFriendButton = document.getElementById('js-addFriend'),
 		favoriteButton = document.getElementById('js-addFavorite'),
-		profileButton = document.getElementById('js-profileButton');
+		chatButton = document.getElementById('js-chatButton');
+
+
 
 
 	addFriendButton.addEventListener("click", function(){
 		if(addedFriend()){
-			addFriendButton.value =  "Remove Friend";
+			addFriendButton.value =  "Remove from my friends";
 			container.classList.add("friends");
 		} else {
 			addFriendButton.value =  "Add as Friend";
 			container.classList.remove("friends");
+		}
+	});
+
+	favoriteButton.addEventListener("click", function(){
+		if (this.classList.contains('clicked')) {
+		    this.classList.remove("clicked");
+		    setStorageElement("favorite-friend", true);
+		} else {
+			this.classList.add("clicked");
+			setStorageElement("favorite-friend", true);
 		}
 	});
 
@@ -27,20 +39,20 @@ function addedFriend() {
 }
 
 function getStorageElement(elementKey){
-	if(localStorage){
-	    return localStorage.getItem(elementKey);
+	if(sessionStorage){
+	    return sessionStorage.getItem(elementKey);
 	} else{
 	    return null;
 	}
 }
 
 function setStorageElement(elementKey, value){
-	if(localStorage){
-	    if(localStorage.getItem(elementKey)){
-	    	localStorage.removeItem(elementKey);
+	if(sessionStorage){
+	    if(sessionStorage.getItem(elementKey)){
+	    	sessionStorage.removeItem(elementKey);
 	    	return false;
 	    } else{
-	    	localStorage.setItem(elementKey, value);
+	    	sessionStorage.setItem(elementKey, value);
 	    	return true;
 	    }
 	} else{
