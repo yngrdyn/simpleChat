@@ -77,6 +77,15 @@ module.exports = function(grunt) {
       html: {
         files: ['*.html']
       }
+    },
+    casperjs: {
+      options: {
+        async: {
+          parallel: false
+        },
+        silent: false
+      },
+      files: ['test/*_test.js']
     }
   });
 
@@ -87,8 +96,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-casperjs');
 
   // Register Grunt tasks
-  grunt.registerTask('serveApp', ['connect:server', 'watch']);
+  grunt.registerTask('serveApp', ['connect:server', 'casperjs', 'watch']);
 
 };

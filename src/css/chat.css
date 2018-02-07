@@ -8,7 +8,7 @@ main .messages .message {
   justify-content: space-between;
   flex-direction: row; }
 
-body {
+body, main .messages {
   margin: 0 auto; }
 
 /* Safari 4.0 - 8.0 */
@@ -74,20 +74,56 @@ main {
   align-items: stretch; }
   main .messages {
     max-width: 1024px;
+    justify-content: flex-start;
     overflow-y: auto; }
-    main .messages .message .bubbletext-container {
-      order: 2;
-      margin: 0 0px 15px 10px;
-      background-color: white;
-      width: calc(100% - 60px); }
-      main .messages .message .bubbletext-container.fromuser:after {
-        border-color: white transparent transparent transparent; }
-    main .messages .message .userpicture {
-      background: #f00;
-      height: 50px;
-      width: 50px;
-      border-radius: 25px;
-      order: 1; }
+    main .messages .message {
+      flex-shrink: 0; }
+      main .messages .message .bubbletext-container {
+        width: calc(100% - 60px); }
+        main .messages .message .bubbletext-container.fromuser {
+          background-color: #fff;
+          order: 2;
+          margin: 0 50px 15px 10px; }
+          main .messages .message .bubbletext-container.fromuser:after {
+            border-color: #fff transparent transparent transparent; }
+        main .messages .message .bubbletext-container.touser {
+          background-color: #54bae2;
+          order: 1;
+          margin: 0 10px 15px 50px; }
+          main .messages .message .bubbletext-container.touser:after {
+            content: ' ';
+            position: absolute;
+            width: 0;
+            height: 0;
+            right: -12px;
+            left: auto;
+            top: 0px;
+            bottom: auto;
+            border: 15px solid;
+            border-color: #54bae2 transparent transparent transparent; }
+          main .messages .message .bubbletext-container.touser p {
+            color: white; }
+      main .messages .message .userpicture {
+        height: 50px;
+        width: 50px;
+        order: 1; }
+        main .messages .message .userpicture img {
+          width: 100%;
+          -webkit-border-radius: 25px;
+          -moz-border-radius: 25px;
+          -ms-border-radius: 25px;
+          border-radius: 25px; }
+        main .messages .message .userpicture .status {
+          width: 14px;
+          height: 14px;
+          background: #72bb54;
+          -webkit-border-radius: 7px;
+          -moz-border-radius: 7px;
+          -ms-border-radius: 7px;
+          border-radius: 7px;
+          position: relative;
+          top: -18px;
+          left: 29px; }
   main #footer {
     align-self: flex-end;
     width: 100%; }
@@ -99,15 +135,22 @@ main {
         border-color: white transparent transparent transparent; }
       main #footer .bubbletext-container input {
         color: #000;
-        width: 100%; }
+        width: 100%;
+        font-size: 1em;
+        outline: none; }
         main #footer .bubbletext-container input:focus {
           outline-style: none;
+          -webkit-box-shadow: none;
+          -moz-box-shadow: none;
           box-shadow: none;
           border-color: transparent; }
   main .bubbletext-container {
     display: inline-block;
     position: relative;
     height: auto;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
     border-radius: 5px; }
     main .bubbletext-container.fromuser:after {
       content: ' ';

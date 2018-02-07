@@ -12,24 +12,60 @@ main {
     .messages {
     	max-width: $profile-maxwidth;
     	@extend %flex-columns;
+    	@extend %centered;
+    	justify-content: flex-start;
     	overflow-y: auto;
     	.message {
     		@extend %flex-rows;
+    		flex-shrink: 0;
     		.bubbletext-container {
-    			order: 2;
-				margin: 0 0px 15px 10px;
-				background-color: white;
 				width: calc(100% - 60px);
-				&.fromuser:after{
-					border-color: white transparent transparent transparent;
+				&.fromuser {
+					background-color: $fromuser-background;
+					order: 2;
+					margin: 0 50px 15px 10px;
+					&:after{
+						border-color: $fromuser-background transparent transparent transparent;
+					}
+				}
+				&.touser {
+					background-color: $touser-background;
+					order: 1;
+					margin: 0 10px 15px 50px;
+					&:after {
+						content: ' ';
+						position: absolute;
+						width: 0;
+						height: 0;
+					  	right: -12px;
+						left: auto;
+					  	top: 0px;
+						bottom: auto;
+						border: 15px solid;
+						border-color: $touser-background transparent transparent transparent;
+					}
+					p {
+						color: white;
+					}
 				}
 			}
 			.userpicture {
-				background:#f00;
-				height:50px;
-				width:50px;
-				border-radius: 25px;
+				height:$picture-size;
+				width:$picture-size;
 				order: 1;
+				img {
+					width:100%;
+					@include border-radius($picture-size/2);
+				}
+				.status {
+					width: $statuscircle-size;
+				    height: $statuscircle-size;
+				    background: $statuscircle-color;
+				    @include border-radius($statuscircle-size/2);
+				    position: relative;
+				    top: -18px;
+				    left: 29px;
+				}
 			}
     	}
     	
@@ -50,9 +86,11 @@ main {
 			input {
 				color: #000;
 				width: 100%;
+				font-size: 1em;
+				outline: none;
 				&:focus {
 			    	outline-style:none;
-					box-shadow:none;
+			    	@include box-shadow(none);
 					border-color:transparent;
 			    }
 			}
@@ -63,7 +101,7 @@ main {
 	  	display: inline-block;
 	  	position: relative;
 		height: auto;
-		border-radius: 5px;
+		@include border-radius(5px);
 		&.fromuser:after{
 			content: ' ';
 			position: absolute;
