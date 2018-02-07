@@ -1,20 +1,29 @@
+// View elements
+
+var container = document.getElementById("js-container"),
+	addFriendButton = document.getElementById('js-addFriend'),
+	favoriteButton = document.getElementById('js-addFavorite'),
+	chatButton = document.getElementById('js-chatButton');
+
+// End of View elements
+
 window.onload = function() {
-    var container = document.getElementById("js-container"),
-		addFriendButton = document.getElementById('js-addFriend'),
-		favoriteButton = document.getElementById('js-addFavorite'),
-		chatButton = document.getElementById('js-chatButton');
+	
+	// Checking session data
 
+	if(getStorageElement("favorite-friend")){
+		favoriteButton.classList.add("clicked");
+	} 
 
+	handleAddFriendButton(getStorageElement("friend"));
 
+	// End checking session data
+	
+
+	// Event handlers
 
 	addFriendButton.addEventListener("click", function(){
-		if(addedFriend()){
-			addFriendButton.value =  "Remove from my friends";
-			container.classList.add("friends");
-		} else {
-			addFriendButton.value =  "Add as Friend";
-			container.classList.remove("friends");
-		}
+		handleAddFriendButton(addedFriend());
 	});
 
 	favoriteButton.addEventListener("click", function(){
@@ -27,7 +36,19 @@ window.onload = function() {
 		}
 	});
 
+	// End of Event handlers
+
 };
+
+function handleAddFriendButton(param){
+	if(param){
+		addFriendButton.value =  "Remove from my friends";
+		container.classList.add("friends");
+	} else {
+		addFriendButton.value =  "Add as Friend";
+		container.classList.remove("friends");
+	}
+}
 
 function addedFriend() {
 	setStorageElement("friend", true);
