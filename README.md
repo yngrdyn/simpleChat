@@ -1,5 +1,6 @@
 # simpleChat
-Simple Chat - Profile without Backend
+Simple Chat - Profile without Backend.
+Pure Javascript.
 
 ## Dependencies:
 - NodeJS
@@ -16,4 +17,8 @@ Simple Chat - Profile without Backend
 - Run the project
 ```
   projectfolder > grunt serveApp
+```
+- Check the project on the broswer
+```
+  http://localhost:8001
 ```
